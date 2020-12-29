@@ -12,3 +12,19 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+// prompts to show after clicking generate password button
+
+function generatePassword() {
+    
+    var passwordLength = prompt("Please pick the number of characters between 8 and 128 for your new password.");
+
+    var upperCase = confirm("Do you want uppercases in your new password?");
+
+    var lowerCase = confirm  ("Do you want lowercases in your new password?");
+
+    var numbers = confirm  ("Do you want numbers in your new password?");
+
+    var special = confirm  ("Do you want special characters in your new password?");
+}
