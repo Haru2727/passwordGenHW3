@@ -9,7 +9,7 @@ const numbs = "0123456789"
 
 // Write password to the #password input
 function writePassword() {
-    var password = generatePassword(passwordLength);
+    var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
