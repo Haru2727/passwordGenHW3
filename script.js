@@ -1,8 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Special Characters 
-const specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+// Character Constants 
+const specialCharacters = "!#$%&'()*+,-.:;<=>?@[^_`{|}~";
+const uppers = "QWERTYASDFGHZXCVBNUIOPJKLNM";
+const lowers = "qwertyasdfghzxcvbnuiopjklnm";
+const numbs = "0123456789"
 
 // Write password to the #password input
 function writePassword() {
@@ -38,81 +41,85 @@ function generatePassword() {
     if (upperCases != true && lowerCases != true && numbers != true && special != true) {
         alert("You must select at least one character type!");
     }
-  
+
+    console.log(passwordLength)
     // setting a minimum count for all variables under length.
-  var minimumCount = 0;
+    var minimumCount = 0;
 
 
-     // setting empty minimums for same variables. 
+    // setting empty minimums for same variables. 
 
-  var minimumNumbers = "";
-  var minimumLowerCases = "";
-  var minimumUpperCases = "";
-  var minimumSpecialCharacters = "";
+    var minimumNumbers = "";
+    var minimumLowerCases = "";
+    var minimumUpperCases = "";
+    var minimumSpecialCharacters = "";
 
     // Password Generator functions 
-  var functionArray = {
+    // replaced the fromCharCode method to check if that was my issue, it was not.  
+    var functionGenArray = {
 
-    getUpperCases: function() {
-        return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
-      },
+        getUpperCases: function () {
+            // return String.fromCharCode(Math.floor(Math.random() * 26 )+ 65);
+            return uppers[Math.floor(Math.random() * uppers.length)];
+        },
 
-    getLowerCases: function() {
-      return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
-    },
-    getNumbers: function() {
-        return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
-      },
+        getLowerCases: function () {
+            // return String.fromCharCode(Math.floor(Math.random() * 26 )+ 97);
+            return lowers[Math.floor(Math.random() * lowers.length)];
+        },
+        getNumbers: function () {
+            // return String.fromCharCode(Math.floor(Math.random() * 10 )+ 48);
+            return numbs[Math.floor(Math.random() * numbs.length)];
+        },
 
-    getSpecialCharacters: function() {
-      return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
-    }
+        getSpecialCharacters: function () {
+            return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
+        }
 
-};
+    };
 
-  // Checks to make sure user selected ok for all and uses empty minimums from above
-
-  if (numbers === true) {
-    minimumNumbers = functionArray.getNumbers();
-    minimumCount++;
-
-  }
-
-  if (lowerCases === true) {
-    minimumLowerCases = functionArray.getLowerCases();
-    minimumCount++;
-
-  }
+    // Checks to make sure user selected ok for all and uses empty minimums from above
 
   if (upperCases === true) {
-    minimumUpperCases = functionArray.getUpperCases();
-    minimumCount++;
+        minimumUpperCases = functionGenArray.getUpperCases();
+        minimumCount++;
 
-  }
+    }
+
+  if (lowerCases === true) {
+        minimumLowerCases = functionGenArray.getLowerCases();
+        minimumCount++;
+
+    }
+
+    if (numbers === true) {
+        minimumNumbers = functionGenArray.getNumbers();
+        minimumCount++;
+
+    }
 
   if (special === true) {
-    minimumSpecialCharacters = functionArray.getSpecialCharacters();
-    minimumCount++;
+        minimumSpecialCharacters = functionGenArray.getSpecialCharacters();
+        minimumCount++;
 
-  }
+    }
 
     // setting an empty string for a random character loop to be used
-  var randomPasswordGenerated = "";
+    var randomPasswordGenerated = "";
+    // this for loop is working but not to the standards I need it too.
+    // I cannot make it repeat to fill out the length of password the user chooses
+    for (var i = 0; i < (isNaN(passwordLength) - minimumCount); i += passwordLength) {
+        randomNumberPicked = passwordLength.charAt(Math.floor(Math.random() * passwordLength));
 
-  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
-    var randomNumberPicked = Math.floor(Math.random() * 4);
+        randomPasswordGenerated += randomNumberPicked;
 
-    randomPasswordGenerated += randomNumberPicked;
+    }
+    // adds ths characters to the password 
+    randomPasswordGenerated += minimumUpperCases;
+    randomPasswordGenerated += minimumLowerCases;
+    randomPasswordGenerated += minimumNumbers;
+    randomPasswordGenerated += minimumSpecialCharacters;
 
-  }
-
-// adds ths characters to the password 
-  randomPasswordGenerated += minimumNumbers;
-  randomPasswordGenerated += minimumLowerCases;
-  randomPasswordGenerated += minimumUpperCases;
-  randomPasswordGenerated += minimumSpecialCharacters;
-
-
-  return randomPasswordGenerated;
+    return randomPasswordGenerated;
 
 }
