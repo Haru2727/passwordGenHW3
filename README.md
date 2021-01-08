@@ -7,7 +7,7 @@
 
                                                                     <<<<<<<<What I Learned>>>>>>>>
 
-  I had a difficult time getting this started but once I learned how to complete step one the other steps became clearer for me as to why to add them.  I learned how the fromCharCode works with obtaining characters without having to put them in a const array.   I struggled to get code to show up in the text box at first and continue to struggle to have it come out at the correct length.  I understand the reasoning behind for loops 
+  I had a difficult time getting this started but once I learned how to complete step one the other steps became clearer for me as to why to add them.  I learned how the fromCharCode works with obtaining characters without having to put them in a const array.   I struggled to get code to show up in the text box at first and continue to struggle to have it come out at the correct length.  I understand the reasoning behind for loops but the one I created is not outputting the selected length.  My code seems to be missing a part that will register the OK or CANCEL confirm options.  I got the function to run and give me a random character type for each selection, but am trying to add the rest that my TA helped point out that was missing.  I am attempting to get the rest of the missing code in but am having difficulty making it work.  If I complete it soon I will push it to Guthub.  
 
 
 

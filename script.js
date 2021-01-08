@@ -108,12 +108,15 @@ function generatePassword() {
     var randomPasswordGenerated = "";
     // this for loop is working but not to the standards I need it too.
     // I cannot make it repeat to fill out the length of password the user chooses
-    for (var i = 0; i < (isNaN(passwordLength) - minimumCount); i += passwordLength) {
-        randomNumberPicked = passwordLength.charAt(Math.floor(Math.random() * passwordLength));
+    for ( i = 0; i < (isNaN(passwordLength) - minimumCount); i ++) {
+    //    var randomNumberPicked = passwordLength.charAt(Math.floor(Math.random() * passwordLength));
+    
+    var randomNumberPicked = Math.floor(Math.random() * 4);
 
         randomPasswordGenerated += randomNumberPicked;
 
     }
+    console.log(i)
     // adds ths characters to the password 
     randomPasswordGenerated += minimumUpperCases;
     randomPasswordGenerated += minimumLowerCases;
