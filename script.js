@@ -13,7 +13,7 @@ function writePassword() {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-
+ 
 }
 
 // Add event listener to generate button
@@ -53,6 +53,7 @@ function generatePassword() {
     var minimumLowerCases = "";
     var minimumUpperCases = "";
     var minimumSpecialCharacters = "";
+    var minPasswordLength = "";
 
     // Password Generator functions 
     // replaced the fromCharCode method to check if that was my issue, it was not.  
